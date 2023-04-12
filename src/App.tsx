@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled, { createGlobalStyle } from "styled-components"
+import {RouterProvider} from "react-router-dom";
+import Router from './Router';
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from './theme';
+import {useRecoilValue} from "recoil";
+import { isDarkAtom } from './atoms';
+
+const GlobalStyle = createGlobalStyle`
+a {
+  text-decoration:none;
+  color:inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+`;
 
 function App() {
+  const isDark = useRecoilValue(isDarkAtom);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider theme={isDark? darkTheme:lightTheme}>
+        <GlobalStyle/>
+        <RouterProvider router={Router}/>
+      </ThemeProvider>
+    </>    
   );
 }
 
