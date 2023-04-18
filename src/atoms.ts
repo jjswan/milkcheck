@@ -1,16 +1,22 @@
-import {atom} from "recoil";
+import {atom, selector} from "recoil";
 
 export const isDarkAtom = atom({
   key:"isDark",
   default:false
 })
 
-export const namesAtom = atom({
+export interface InamesAtom{
+  text:string,
+  id:number,
+  category: "EAT"|"EATEN"
+}
+
+export const namesAtom = atom<InamesAtom[]>({
   key:"names",
-  default: ['김하니', '이하니', '장하니', '오하니', '유하니', '신하니', '한하니', '고하니', '임하니', '최하니', '주하니', '전하니', '박하니']
+  default:[]
 })
 
-export const eatensAtom = atom<string[]>({
-  key:"eatens",
-  default: []
-})
+// export const eatensAtom = atom<string[]>({
+//   key:"eatens",
+//   default: []
+// })

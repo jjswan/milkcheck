@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import Check from "./routes/Check";
+import Milklist from "./routes/Milklist";
 import Change from "./routes/Change";
 
 
 const Router=createBrowserRouter([
   {
     path:"/",
-    element:<Check/>,
+    element:<Milklist/>,
     children:[
       {
         path:"/change",
