@@ -26,27 +26,9 @@ const Btn = styled.button`
 
 function Milklist(){
   const [names, setNames] = useRecoilState(namesAtom);
-  // const setNamesAtom =useSetRecoilState(namesAtom); 
-  // const names = useRecoilValue(namesAtom);
-  // const setEatensAtom=useSetRecoilState(eatensAtom);
-  // const eatens = useRecoilValue(eatensAtom);
-  // const [eatens, setEatens] = useState<string[]>([]);
 
-  // function AddName(event:React.MouseEvent<HTMLButtonElement>){
-  
-    
-    // setToDos(oldToDos=>{
-    //   const targetIndex=oldToDos.findIndex(toDo=>toDo.id === id);
-    //   const oldToDo = oldToDos[targetIndex];
-    //   const newTodo = {text, id, category: name as any};
-    //   console.log(oldToDo, newTodo);
-    //   return [...oldToDos.slice(0, targetIndex), newTodo, ...oldToDos.slice(targetIndex+1)]
-    // })
-    // const eaten_name = event.currentTarget.textContent;
-    // if(eaten_name){
-    //   setEatensAtom(prev => [...prev, eaten_name]);
-    //   setNames(names=> names.filter(name=> name!==eaten_name))
-      // setNames(prev=>prev.filter(name=>name!==eaten_name));
+  localStorage.setItem("names", JSON.stringify(names));
+  // const localNames:InamesAtom[] = JSON.parse(localStorage.getItem("names") as string);
   
   const setDarkAtom = useSetRecoilState(isDarkAtom);
   const setDarkTheme =()=>setDarkAtom(prev=>!prev);

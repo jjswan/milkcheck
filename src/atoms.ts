@@ -13,10 +13,6 @@ export interface InamesAtom{
 
 export const namesAtom = atom<InamesAtom[]>({
   key:"names",
-  default:[]
+  default: JSON.parse(localStorage.getItem("names") as string)
 })
 
-// export const eatensAtom = atom<string[]>({
-//   key:"eatens",
-//   default: []
-// })
